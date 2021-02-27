@@ -1,0 +1,11 @@
+C:\Users\Eslam Waheed\Desktop\computer graphics project\computer graphics project\bin\Debug\computer graphics project.exe.config
+C:\Users\Eslam Waheed\Desktop\computer graphics project\computer graphics project\bin\Debug\computer graphics project.exe
+C:\Users\Eslam Waheed\Desktop\computer graphics project\computer graphics project\bin\Debug\computer graphics project.pdb
+C:\Users\Eslam Waheed\Desktop\computer graphics project\computer graphics project\obj\Debug\computer graphics project.csprojAssemblyReference.cache
+C:\Users\Eslam Waheed\Desktop\computer graphics project\computer graphics project\obj\Debug\computer_graphics_project.Intro.resources
+C:\Users\Eslam Waheed\Desktop\computer graphics project\computer graphics project\obj\Debug\computer_graphics_project.algorithms.resources
+C:\Users\Eslam Waheed\Desktop\computer graphics project\computer graphics project\obj\Debug\computer_graphics_project.Properties.Resources.resources
+C:\Users\Eslam Waheed\Desktop\computer graphics project\computer graphics project\obj\Debug\computer graphics project.csproj.GenerateResource.cache
+C:\Users\Eslam Waheed\Desktop\computer graphics project\computer graphics project\obj\Debug\computer graphics project.csproj.CoreCompileInputs.cache
+C:\Users\Eslam Waheed\Desktop\computer graphics project\computer graphics project\obj\Debug\computer graphics project.exe
+C:\Users\Eslam Waheed\Desktop\computer graphics project\computer graphics project\obj\Debug\computer graphics project.pdb
