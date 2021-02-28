@@ -20,7 +20,6 @@ namespace computer_graphics_project
             InitializeComponent();
         }
 
-
         /*
          
         about the project :- 
@@ -251,6 +250,85 @@ namespace computer_graphics_project
             return res;
         }
 
+        // Clipping
+        void clipping(int x_min, int y_min, int x_max, int y_max)
+        {
+            string code1 = "", code2 = "";
+            code1 += (y1_yc > y_max ? "1" : "0");
+            code1 += (y1_yc < y_min ? "1" : "0");
+            code1 += (x1_xc > x_max ? "1" : "0");
+            code1 += (x1_xc < x_min ? "1" : "0");
+
+            code2 += (y1_yc > y_max ? "1" : "0");
+            code2 += (y1_yc < y_min ? "1" : "0");
+            code2 += (x1_xc > x_max ? "1" : "0");
+            code2 += (x1_xc < x_min ? "1" : "0");
+
+            // or operation
+            int result1 = 0;
+            for (int i = 0; i < 4; i++)
+                result1 += (code1[i] - '0' + code2[i] - '0') > 0 ? 1 : 0;
+            if (result1 == 0)
+                return;
+
+            // and operation
+            int result2 = 0;
+            for (int i = 0; i < 4; i++)
+                result2 += ((code1[i] - '0') * (code2[i] - '0')) > 0 ? 1 : 0;
+            if (result2 != 0)
+            {
+                x1_xc = 0;
+                y1_yc = 0;
+                x2_rx = 0;
+                y2_ry = 0;
+                return;
+            }
+
+            int new_x1 = 0, new_x2 = 0, new_y1 = 0, new_y2 = 0;
+            solve1(code1, ref new_x1, ref new_y1, x_min, y_min, x_max, y_max);
+            solve1(code2, ref new_x2, ref new_y2, x_min, y_min, x_max, y_max);
+            x1_xc = new_x1;
+            y1_yc = new_y1;
+            x2_rx = new_x2;
+            y2_ry = new_y2;
+        }
+        public void solve1(string code1, ref int x, ref int y, int x_min, int y_min, int x_max, int y_max)
+        {
+            double slope = (double)(y2_ry - y1_yc) / (x2_rx - x1_xc);
+
+            for (int i = 3; i >= 0; i--)
+            {
+                if (code1[i] - '0' == 1)
+                {
+                    x = x_min;
+                    y = (int)Math.Round((slope * (x - x1_xc)) + y1_yc);
+                    break;
+                }
+                else
+                if (code1[i] - '0' == 1)
+                {
+                    x = x_max;
+                    y = (int)Math.Round((slope * (x - x1_xc)) + y1_yc);
+                    break;
+                }
+                else
+                if (code1[i] - '0' == 1)
+                {
+                    y = y_min;
+                    x = (int)Math.Round(((y - y1_yc) / slope) + x1_xc);
+                    break;
+                }
+                else
+                if (code1[i] - '0' == 1)
+                {
+                    y = y_max;
+                    x = (int)Math.Round(((y - y1_yc) / slope) + x1_xc);
+                    break;
+                }
+            }
+        }
+
+
         //********************* Draw 1 **************************//
         private void button2_Click(object sender, EventArgs e)
         {
@@ -372,6 +450,7 @@ namespace computer_graphics_project
                 int xmax = int.Parse(txtb3.Text);
                 int ymax = int.Parse(txtb4.Text);
                 Bitmap bp = new Bitmap(ptrbox.Width, ptrbox.Height);
+                //clipping(xmin, ymin, xmax, ymax);
                 left = xmin;
                 right = xmax;
                 top = ymax;
